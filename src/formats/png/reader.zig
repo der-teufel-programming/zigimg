@@ -767,7 +767,7 @@ pub const TrnsProcessor = struct {
         };
         var pixel_pos: u32 = 0;
         // work around broken saturating arithmetic on wasm https://github.com/llvm/llvm-project/issues/58557
-        const isWasm = comptime @import("builtin").target.isWasm();
+        const isWasm = comptime @import("builtin").target.cpu.arch.isWasm();
         switch (self.trns_data) {
             .gray => |gray_alpha| {
                 switch (data.src_format) {
